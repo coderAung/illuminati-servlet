@@ -1,10 +1,7 @@
 package edu.ucsy.illuminati;
 
 import java.io.IOException;
-import java.util.Enumeration;
-import java.util.Iterator;
 
-import jakarta.servlet.ServletConfig;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
 import jakarta.servlet.annotation.WebServlet;
