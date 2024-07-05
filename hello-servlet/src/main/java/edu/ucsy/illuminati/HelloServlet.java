@@ -1,6 +1,7 @@
 package edu.ucsy.illuminati;
 
 import java.io.IOException;
+import java.util.Enumeration;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebInitParam;
@@ -34,6 +35,11 @@ public class HelloServlet extends HttpServlet {
 		String email = getInitParameter("email");
 		String name = getInitParameter("name");
 		int age = Integer.parseInt(getInitParameter("age"));
+		
+		Enumeration<String> initNames = getInitParameterNames();
+		while (initNames.hasMoreElements()) {
+			System.out.printf("Init Name : %s%n", initNames.nextElement());
+		}
 		
 		System.out.printf("Email : %s%n", email);
 		System.out.printf("Name  : %s%n", name);
