@@ -8,20 +8,17 @@ import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet("/include")
-public class IncludeServlet extends HttpServlet {
-
+@WebServlet(
+	urlPatterns = {"/footer"},
+	name = "footerServlet"
+)
+public class FooterServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		// request dispatcher from request object (relative path)
-		getServletContext().getRequestDispatcher("/header").include(req, resp);
+		String footer = "This is Footer";
 		
-		// request dispatcher from servlet context (absolute path)
-		getServletContext().getRequestDispatcher("/message").include(req, resp);
-	
-		// servlet name
-		getServletContext().getNamedDispatcher("footerServlet").include(req, resp);
+		resp.getWriter().append("<h3>%s</h3>".formatted(footer)).flush();
 	}
 }
