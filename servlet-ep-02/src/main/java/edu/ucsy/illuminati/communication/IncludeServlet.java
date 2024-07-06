@@ -16,7 +16,7 @@ public class IncludeServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		// request dispatcher from request object (relative path)
-		getServletContext().getRequestDispatcher("/header").include(req, resp);
+		req.getRequestDispatcher("header").include(req, resp);
 		
 		// request dispatcher from servlet context (absolute path)
 		getServletContext().getRequestDispatcher("/message").include(req, resp);
