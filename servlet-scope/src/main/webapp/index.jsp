@@ -20,39 +20,15 @@
 	
 		<tr>
 			<td>Request Scope</td>
-			<td>
-				<%
-					if (null != c1) {
-						out.print(c1.getNum());
-					} else {
-						out.print(0);
-					}
-				%>
-			</td>
+			<td><%= null != c1 ? c1.getNum() : 0 %></td>
 		</tr>
 		<tr>
 			<td>Session Scope</td>
-			<td>
-				<%
-					if (null != c2) {
-						out.print(c2.getNum());
-					} else {
-						out.print(0);
-					}
-				%>
-			</td>
+			<td><%= null != c2 ? c2.getNum() : 0 %></td>
 		</tr>
 		<tr>
 			<td>Application Scope</td>
-			<td>
-				<%
-					if (null != c3) {
-						out.print(c3.getNum());
-					} else {
-						out.print(0);
-					}
-				%>
-			</td>
+			<td><%= null != c2 ? c2.getNum() : 0 %></td>
 		</tr>
 		<tr>
 			<td colspan="2">
