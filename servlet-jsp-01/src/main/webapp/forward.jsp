@@ -23,7 +23,7 @@
 						<tbody>
 							<tr>
 								<td>Name</td>
-								<td>${ param.name }</td>
+								<td><%= request.getParameter("name") %></td>
 							</tr>
 							<tr>
 								<td>Age</td>
