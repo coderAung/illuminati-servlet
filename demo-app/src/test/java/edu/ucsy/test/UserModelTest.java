@@ -6,6 +6,7 @@ import static org.junit.jupiter.api.Assertions.assertNotNull;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import edu.ucsy.db.ConnectorFactory;
 import edu.ucsy.model.UserModel;
 import edu.ucsy.model.entity.User;
 import edu.ucsy.model.impl.UserModelImpl;
@@ -16,7 +17,7 @@ public class UserModelTest {
 	
 	@BeforeAll
 	static void init() {
-		userModel = new UserModelImpl();
+		userModel = new UserModelImpl(ConnectorFactory.getConnector());
 	}
 	
 	@Test
