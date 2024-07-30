@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,6 +19,7 @@
 					<th>ID</th>
 					<th>Name</th>
 					<th>Email</th>
+					<th>Role</th>
 					<th class="text-end">
 						<button class="btn btn-primary w-100"
 						data-bs-toggle="modal" data-bs-target="#add-user-form">
@@ -26,14 +28,25 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr class="align-middle">
-					<td>1</td>
-					<td>Aung Aung</td>
-					<td>aung@gmail.com</td>
-					<td class="text-center">
-						<a href="#" class="btn btn-outline-danger">Delete</a>
-					</td>
-				</tr>
+				<c:forEach var="user" items="${users}">
+					<tr class="align-middle">
+						<td>
+							<c:out value="${user.id}"></c:out>
+						</td>
+						<td>
+							<c:out value="${user.name}"></c:out>
+						</td>
+						<td>
+							<c:out value="${user.email}"></c:out>
+						</td>
+						<td>
+							<c:out value="${user.role}"></c:out>
+						</td>
+						<td class="text-center">
+							<a href="#" class="btn btn-outline-danger">Delete</a>
+						</td>
+					</tr>
+				</c:forEach>
 			</tbody>
 		</table>
 		<jsp:include page="/component/modal/add-user-form.jsp"></jsp:include>

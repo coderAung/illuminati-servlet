@@ -14,7 +14,7 @@
 						<input class="form-control" type="email" name="email" placeholder="Enter Email"/>
 				</div>
 				<div class="modal-footer">
-					<div href="#" class="btn btn-danger" data-bs-dismiss="modal">Cancle</div>
+					<div class="btn btn-danger" data-bs-dismiss="modal">Cancle</div>
 					<button type="submit" class="btn btn-primary">Add</button>
 				</div>
 			</form>
