@@ -1,6 +1,5 @@
 package edu.ucsy.service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import edu.ucsy.db.DatabaseConnector;
@@ -25,7 +24,6 @@ public class UserService {
 //			userVoList.add(new UserVo(u));
 //		}
 		var userVoList = users.stream().map(UserVo::new).toList();
-		
 		return userVoList;
 	}
 }
