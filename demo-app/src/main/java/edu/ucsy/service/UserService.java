@@ -5,7 +5,9 @@ import java.util.List;
 import edu.ucsy.db.DatabaseConnector;
 import edu.ucsy.model.ModelFactory;
 import edu.ucsy.model.UserModel;
+import edu.ucsy.model.dto.AddUserForm;
 import edu.ucsy.model.dto.vo.UserVo;
+import edu.ucsy.model.entity.User;
 
 public class UserService {
 
@@ -25,5 +27,10 @@ public class UserService {
 //		}
 		var userVoList = users.stream().map(UserVo::new).toList();
 		return userVoList;
+	}
+
+	public void addUser(AddUserForm form) {
+		var user = new User(form.getName(), form.getEmail());
+		userModel.save(user);
 	}
 }

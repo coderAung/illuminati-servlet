@@ -1,6 +1,7 @@
 package edu.ucsy.model.impl;
 
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,25 @@ public class UserModelImpl implements UserModel {
 
 	@Override
 	public User save(User u) {
-		// TODO Auto-generated method stub
+		var sql = "insert into users (name, email) values (?, ?)";
+		
+		try(var conn = connector.getConnection();
+				var stmt = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+			
+			stmt.setString(1, u.getName());
+			stmt.setString(2, u.getEmail());
+			
+			stmt.executeUpdate();
+			var keys = stmt.getGeneratedKeys();
+			if(keys.next()) {
+				var id = keys.getInt(1);
+				u.setId(id);
+				return u;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 		return null;
 	}
 
