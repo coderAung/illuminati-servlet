@@ -13,6 +13,14 @@
 	<jsp:include page="/component/nav-bar.jsp"></jsp:include>
 	
 	<section>
+	<c:if test="${not empty success}">
+		<div class="alert alert-success alert-dismissible fade show w-50 mx-auto" role="alert">
+			<c:out value="${success}"></c:out>
+			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+		</div>
+		<c:remove var="success" scope="session"/>
+	</c:if>
+	
 		<table class="table table-striped w-50 mx-auto border shadow">
 			<thead>
 				<tr class="align-middle">

@@ -37,7 +37,7 @@ public class UserController extends AbstractController {
 				null != email && !email.isBlank()) {
 			var form = new AddUserForm(name, email);
 			userService.addUser(form);
-			
+			req.getSession(true).setAttribute("success", "Added %s Successfully".formatted(name));
 			redirect(req, resp, "/home");
 		}
 	}
