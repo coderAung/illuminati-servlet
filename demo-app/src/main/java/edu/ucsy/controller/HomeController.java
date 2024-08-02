@@ -12,7 +12,7 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 
-@WebServlet({"/", "/home"})
+@WebServlet({"/home"})
 public class HomeController extends AbstractController {
 
 	private static final long serialVersionUID = 1L;

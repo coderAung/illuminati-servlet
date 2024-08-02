@@ -51,14 +51,17 @@
 							<c:out value="${user.role}"></c:out>
 						</td>
 						<td class="text-center">
-							<a href="#" class="btn btn-outline-danger">Delete</a>
+							<button userid="${user.id}" username="${user.name}" type="button" class="btn btn-outline-danger delete-btn">Delete</button>
 						</td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 		<jsp:include page="/component/modal/add-user-form.jsp"></jsp:include>
+		<jsp:include page="/component/modal/delete-confirm.jsp"></jsp:include>
 	</section>
 	
 </body>
+<c:url var="deleteModalJs" value="/js/delete-modal.js"></c:url>
+<script type="text/javascript" src="${deleteModalJs}"></script>
 </html>
