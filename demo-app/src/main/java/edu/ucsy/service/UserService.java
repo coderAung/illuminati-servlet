@@ -33,4 +33,9 @@ public class UserService {
 		var user = new User(form.getName(), form.getEmail());
 		userModel.save(user);
 	}
+
+	public boolean deleteUser(int id) {
+		var result = userModel.delete(id);
+		return result;
+	}
 }

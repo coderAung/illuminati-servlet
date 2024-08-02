@@ -13,12 +13,22 @@
 	<jsp:include page="/component/nav-bar.jsp"></jsp:include>
 	
 	<section>
-	<c:if test="${not empty success}">
-		<div class="alert alert-success alert-dismissible fade show w-50 mx-auto" role="alert">
-			<c:out value="${success}"></c:out>
+	<c:if test="${not empty alert}">
+		
+		<c:choose>
+			<c:when test="${'ADDED' eq alert.type.toString()}">
+				<c:set var="alertColor" value="alert-success"></c:set>
+			</c:when>
+			<c:when test="${'DELETED' eq alert.type.toString()}">
+				<c:set var="alertColor" value="alert-danger"></c:set>
+			</c:when>
+		</c:choose>
+	
+		<div class="alert ${alertColor} alert-dismissible fade show w-50 mx-auto" role="alert">
+			<c:out value="${alert.message}"></c:out>
 			<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
 		</div>
-		<c:remove var="success" scope="session"/>
+		<c:remove var="alert" scope="session"/>
 	</c:if>
 	
 		<table class="table table-striped w-50 mx-auto border shadow">

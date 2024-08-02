@@ -15,4 +15,6 @@ public interface UserModel {
 	User update(User u);
 	
 	boolean delete(User u);
+	
+	boolean delete(int id);
 }

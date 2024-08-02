@@ -89,4 +89,23 @@ public class UserModelImpl implements UserModel {
 		return false;
 	}
 
+	@Override
+	public boolean delete(int id) {
+		var sql = "delete from users where id = ?";
+
+		try(var conn = connector.getConnection();
+				var stmt = conn.prepareStatement(sql)) {
+			
+			stmt.setInt(1, id);
+			var result = stmt.executeUpdate();
+			if(0 != result) {
+				return true;
+			}
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return false;
+	}
+
 }

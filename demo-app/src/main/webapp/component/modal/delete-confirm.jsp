@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 
 <div class="modal fade" id="delete-confirm">
 	<div class="modal-dialog">
@@ -13,8 +13,11 @@
 			</div>
 			<div class="modal-footer">
 				<button class="btn btn-warning" data-bs-dismiss="modal">Cancel</button>
-				<form action="#" method="post">
+				
+				<c:url var="deleteUrl" value="/user/delete"></c:url>
+				<form action="${deleteUrl}" method="post">
 					<input id="userid-input" type="text" hidden="true" name="userid" value=""/>
+					<input id="username-input" type="text" hidden="true" name="username" value=""/>
 					<button type="submit" class="btn btn-danger">Delete</button>				
 				</form>
 			</div>

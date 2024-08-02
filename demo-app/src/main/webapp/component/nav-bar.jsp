@@ -5,7 +5,7 @@
 <c:url var="home" value="/home"></c:url>
 <c:url var="profile" value="/profile"></c:url>
 
-<div class="py-3 px-4 d-flex justify-content-between border shadow mb-4">
+<div class="py-3 px-4 d-flex justify-content-between bg-white border shadow mb-4 sticky-top">
 		<div class="fs-4">User Management</div>
 		<div class="d-flex justify-content-evenly align-items-center w-25">
 			<a href="${home}">HOME</a>
