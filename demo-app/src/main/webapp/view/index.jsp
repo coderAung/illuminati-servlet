@@ -7,6 +7,8 @@
 <meta charset="UTF-8">
 <title>Demo | Home</title>
 <jsp:include page="/css/bootstrap.jsp"></jsp:include>
+<c:url var="jquery" value="/js/jquery.min.js"></c:url>
+<script type="text/javascript" src="${jquery}"></script>
 </head>
 <body>
 	
@@ -74,4 +76,9 @@
 </body>
 <c:url var="deleteModalJs" value="/js/delete-modal.js"></c:url>
 <script type="text/javascript" src="${deleteModalJs}"></script>
+<script type="text/javascript">
+	$(document).ready(() => {
+		console.log("Hello Jquery")
+	})
+</script>
 </html>
